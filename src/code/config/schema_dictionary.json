@@ -1,0 +1,25 @@
+{
+  "name_mappings": {
+    "haemoglobin": "HAEMOGLOBIN",
+    "hemoglobin": "HAEMOGLOBIN",
+    "hb": "HAEMOGLOBIN",
+    "aemoglobin": "HAEMOGLOBIN",
+    "total wbc count": "WHITE BLOOD CELL COUNT",
+    "wbc count": "WHIaTE BLOOD CELL COUNT",
+    "tal wbc count": "RED BLOOD CELL COUNT",
+    "haematocrit": "HEMATOCRIT",
+    "haematocrit (pcv)": "HEMATOCRIT",
+    "ematocrit hct": "HEMATOCRIT",
+    "platelet count": "PLATELET COUNT",
+    "atelet count": "PLATELET COUNT",
+    "crp": "C-REACTIVE PROTEIN",
+    "c-reactive protein (crp)": "C-REACTIVE PROTEIN",
+    "crp-quantitative": "C-REACTIVE PROTEIN"
+  },
+  "medical_reference_ranges": {
+    "HAEMOGLOBIN": { "low": 12.0, "high": 17.5, "unit": "g/dL" },
+    "RED BLOOD CELL COUNT": { "low": 4.5, "high": 5.5, "unit": "mil/cu.mm" },
+    "WHITE BLOOD CELL COUNT": { "low": 4000.0, "high": 10000.0, "unit": "cell/cu.mm" },
+    "HEMATOCRIT": { "low": 36.0, "high": 46.0, "unit": "%" }
+  }
+}
