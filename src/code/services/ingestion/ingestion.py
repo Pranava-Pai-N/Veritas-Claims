@@ -1,5 +1,4 @@
 import json
-import hashlib
 import shutil
 from pathlib import Path
 from exceptions.validation import ValidationException
@@ -19,10 +18,7 @@ class IngestionLayer():
         self.raw_dir.mkdir(parents=True,exist_ok=True)
         self.duplicates_dir.mkdir(parents=True,exist_ok=True)
         self.processed_dir.mkdir(parents=True,exist_ok=True)
-        
-    def generateHash(self,file_content : str) -> str:
-        return hashlib.md5(file_content.encode("utf-8")).hexdigest()   # Create a unique hash to avid duplicates
-    
+            
     
     def handleDuplicates(self,file_path : Path, reason : str):
         destination_path = self.duplicates_dir / file_path.name
@@ -58,8 +54,6 @@ class IngestionLayer():
                 with open(path, 'r', encoding='utf-8') as file:
                     raw_content = file.read()
                 
-                # Check for file duplicates
-                file_hash = self.generateHash(raw_content)
                 
                 try:
                     payload = json.loads(raw_content)
@@ -70,7 +64,7 @@ class IngestionLayer():
                 datablock = payload.get("data", {})
                 response_details = datablock.get("responseDetails", [])
                 
-                # In-menory search
+                # In-memory search
                 if trace_id in seen_in_this_batch:
                     raise ValidationException(400, "Duplicate file caught inside current memory batch.")
                 

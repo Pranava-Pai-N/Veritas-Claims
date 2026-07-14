@@ -162,7 +162,7 @@ with chart_col:
 st.markdown("---")
 
 
-st.markdown("### Pipeline Audit Logs (Last 10 Unique Records)")
+st.markdown("### Pipeline Audit Logs")
 recent_df = fetch_recent_records()
 
 if not recent_df.empty:

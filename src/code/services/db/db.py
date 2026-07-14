@@ -129,4 +129,16 @@ class DataBaseEntry:
             print(f"Error checking for duplicates,{e}")
             return False
 
-        
+    def load_db_records(self) ->  List[Dict]:
+        try:
+            with sqlite3.connect(self.db_path) as conn:
+                conn.row_factory = sqlite3.Row
+                cursor = conn.cursor()
+                cursor.execute("SELECT * FROM medical_records")
+                
+                rows = cursor.fetchall()
+                
+                return [dict(row) for row in rows]
+        except DBException as e:
+            raise DBException(500,f"Error retrieving records from the database,{e}")
+                
